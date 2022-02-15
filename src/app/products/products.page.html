@@ -1,17 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>products</ion-title>
+    <ion-title>Products</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content
+[scrollEvents]="true"
+  (ionScrollStart)="logScrollStart()"
+  (ionScroll)="logScrolling($event)"
+  (ionScrollEnd)="logScrollEnd()">
   <ion-list>
-    <ion-item *ngFor="let product of products"  (click)="log(product)" >
+    <ion-item *ngFor="let product of products" [routerLink]="['/products', product.id]" (click)="log(product)" >
       <!-- <ion-avatar> -->
-        <a [routerLink]="['./' + product.id]">
+        <!-- <a [routerLink]="['./' + product.id]"> -->
           <p>{{product.name}} ${{product.price}}</p>
         <ion-img  src={{product.img}} ></ion-img>
-        </a>
+        <!-- </a> -->
       <!-- </ion-avatar> -->
       
     </ion-item>

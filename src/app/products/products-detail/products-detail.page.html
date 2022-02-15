@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>products-detail</ion-title>
+    <ion-title>{{product.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  {{product.name}}
+<ion-content class="content ion-padding ion-margin-top">
+  <div class="ion-text-center">
+    <ion-img src={{product.img}}></ion-img>
+    <ion-text color="dark" type="ios">
+      <h5>${{product.price}}</h5>
+    </ion-text>
+    <ion-text color="dark" type="ios">
+      <h5>{{product.description}}</h5>
+    </ion-text>
+  </div>
+  <ion-grid>
+    <ion-row class="ion-justify-content-around">
+      <ion-button expand="block" shape="round" color="danger" routerLink="/">Go Back</ion-button>
+      <ion-button expand="block" shape="round" color="success" (click)="addToCart()">Add to Cart</ion-button>
+    </ion-row>
+  </ion-grid>
 </ion-content>
