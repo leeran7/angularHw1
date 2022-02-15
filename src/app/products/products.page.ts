@@ -12,4 +12,7 @@ export class ProductsPage implements OnInit {
   ngOnInit() {
     this.products = this.pService.getAllProducts();
   }
+  log(product: Product) {
+    console.log(product);
+  }
 }

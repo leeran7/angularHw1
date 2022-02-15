@@ -17,8 +17,11 @@ export class ProductsDetailPage implements OnInit {
 
   ngOnInit() {
     this.active.paramMap.subscribe((map) => {
-      let id = Number(map.get('id'));
-      map.has('id') ? (this.product = this.pService.getProduct(id)) : null;
+      if (!map.has('id')) {
+        return;
+      }
+      const id = Number(map.get('id'));
+      this.product = this.pService.getProduct(id);
     });
   }
 }

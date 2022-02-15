@@ -6,10 +6,12 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let product of products" >
+    <ion-item *ngFor="let product of products"  (click)="log(product)" >
       <!-- <ion-avatar> -->
-        <p>{{product.name}} ${{product.price}}</p>
+        <a [routerLink]="['./' + product.id]">
+          <p>{{product.name}} ${{product.price}}</p>
         <ion-img  src={{product.img}} ></ion-img>
+        </a>
       <!-- </ion-avatar> -->
       
     </ion-item>

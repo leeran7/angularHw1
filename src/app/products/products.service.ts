@@ -20,6 +20,7 @@ export class ProductsService {
     },
   ];
   constructor() {}
+
   getAllProducts() {
     return [...this.products];
   }
