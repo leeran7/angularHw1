@@ -4,20 +4,12 @@ import { Cart, CartItem, Product } from '../interfaces';
   providedIn: 'root',
 })
 export class CartService {
-  private cart: Cart = new Cart();
+  cart: Cart = new Cart();
   totalAfterTax: number;
-  private calculateTotal() {
-    const { items } = this.cart;
-    this.cart.total = 0;
-    items.forEach(
-      (item) => (this.cart.total += item.item.price * item.quantity)
-    );
-  }
-  private findProductInCart(id: number) {
+
+  findProductInCart(id: number) {
     if (this.cart.items.length > 0) {
-      const found = this.cart.items.find((item) => {
-        return item.item.id === id;
-      });
+      const found = this.cart.items.find((item) => item.item.id === id);
       return found;
     } else {
       return false;
@@ -37,6 +29,7 @@ export class CartService {
     this.calculateTotal();
   }
   deleteItem(item: CartItem) {
+    this.cart.quantity -= item.quantity;
     this.cart.items = this.cart.items.filter((cartItem) => item !== cartItem);
     this.calculateTotal();
   }
@@ -54,11 +47,16 @@ export class CartService {
     this.calculateTotal();
   }
   incrementQty(item: CartItem) {
-    const itemToInc = this.cart.items.find((cartItem) => {
-      return item === cartItem;
-    });
+    const itemToInc = this.cart.items.find((cartItem) => item === cartItem);
     itemToInc.quantity++;
     this.cart.quantity++;
     this.calculateTotal();
+  }
+  private calculateTotal() {
+    const { items } = this.cart;
+    this.cart.total = 0;
+    items.forEach(
+      (item) => (this.cart.total += item.item.price * item.quantity)
+    );
   }
 }

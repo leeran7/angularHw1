@@ -10,21 +10,17 @@
         <ion-grid>
           <a [routerLink]="['/products/', item.item.id]" class="unstyled-link">
             <ion-row class="ion-justify-content-center ion-align-items-between ">
-              <img class="avatar" src={{item.item.img}}>
+              <ion-img src={{item.item.img}}></ion-img>
               <ion-label class="ion-margin-top">{{item.item.name}}</ion-label>
-            </ion-row>
-            <ion-row>
-              <p>{{item.item.description}}</p>
             </ion-row>
           </a>
           <ion-row class="ion-justify-content-center ion-align-items-center">
             <p>Quantity: {{item.quantity}}</p>
             <div class="ion-margin">
               <ion-button size="large" (click)="increment(item)">+</ion-button>
-              <ion-button size="large" (click)="decrement(item)" >-</ion-button>
+              <ion-button size="large" (click)="decrement(item)">-</ion-button>
+              <ion-button size="large" (click)="deleteItem(item)" color="danger">Delete</ion-button>
             </div>
-          </ion-row>
-          <ion-row>
           </ion-row>
         </ion-grid>
     </ion-item>

@@ -21,4 +21,7 @@ export class CartPage implements OnInit {
   decrement(item: CartItem) {
     this.service.decrementQty(item);
   }
+  deleteItem(item: CartItem) {
+    this.service.deleteItem(item);
+  }
 }

@@ -1,0 +1,9 @@
+// img {
+//   //   height: 40%;
+//   width: 40%;
+// }
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
