@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Cart, CartItem, Product } from '../interfaces';
-
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cart = new Cart();
-
-  private findProductInCart(product: Product) {
+  private cart: Cart = new Cart();
+  totalAfterTax: number;
+  private calculateTotal() {
+    const { items } = this.cart;
+    this.cart.total = 0;
+    items.forEach(
+      (item) => (this.cart.total += item.item.price * item.quantity)
+    );
+  }
+  private findProductInCart(id: number) {
     if (this.cart.items.length > 0) {
       const found = this.cart.items.find((item) => {
-        return item.item === product;
+        return item.item.id === id;
       });
       return found;
     } else {
@@ -18,8 +24,7 @@ export class CartService {
     }
   }
   addToCart(product: Product) {
-    console.log(product);
-    const item = this.findProductInCart(product);
+    const item = this.findProductInCart(product.id);
     if (!item) {
       this.cart.items.push({
         item: product,
@@ -28,8 +33,32 @@ export class CartService {
     } else {
       item.quantity++;
     }
+    this.cart.quantity++;
+    this.calculateTotal();
+  }
+  deleteItem(item: CartItem) {
+    this.cart.items = this.cart.items.filter((cartItem) => item !== cartItem);
+    this.calculateTotal();
   }
   getCart() {
     return this.cart;
+  }
+  decrementQty(item: CartItem) {
+    const itemToDec = this.cart.items.find((cartitem) => item === cartitem);
+    if (itemToDec.quantity === 1) {
+      this.deleteItem(itemToDec);
+    } else {
+      itemToDec.quantity--;
+    }
+    this.cart.quantity--;
+    this.calculateTotal();
+  }
+  incrementQty(item: CartItem) {
+    const itemToInc = this.cart.items.find((cartItem) => {
+      return item === cartItem;
+    });
+    itemToInc.quantity++;
+    this.cart.quantity++;
+    this.calculateTotal();
   }
 }

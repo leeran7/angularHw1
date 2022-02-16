@@ -4,20 +4,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content
-[scrollEvents]="true"
-  (ionScrollStart)="logScrollStart()"
-  (ionScroll)="logScrolling($event)"
-  (ionScrollEnd)="logScrollEnd()">
+<ion-content class="ion-text-center">
+  <ion-button class="ion-margin" routerLink="/cart">Checkout ({{cart.quantity}}) items</ion-button>
   <ion-list>
     <ion-item *ngFor="let product of products" [routerLink]="['/products', product.id]" (click)="log(product)" >
-      <!-- <ion-avatar> -->
-        <!-- <a [routerLink]="['./' + product.id]"> -->
           <p>{{product.name}} ${{product.price}}</p>
         <ion-img  src={{product.img}} ></ion-img>
-        <!-- </a> -->
-      <!-- </ion-avatar> -->
-      
     </ion-item>
   </ion-list>
 </ion-content>

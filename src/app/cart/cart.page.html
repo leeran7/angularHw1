@@ -4,6 +4,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-text-center">
+  <ion-list class="ion-margin-top">
+    <ion-item *ngFor="let item of cart.items">
+        <ion-grid>
+          <a [routerLink]="['/products/', item.item.id]" class="unstyled-link">
+            <ion-row class="ion-justify-content-center ion-align-items-between ">
+              <img class="avatar" src={{item.item.img}}>
+              <ion-label class="ion-margin-top">{{item.item.name}}</ion-label>
+            </ion-row>
+            <ion-row>
+              <p>{{item.item.description}}</p>
+            </ion-row>
+          </a>
+          <ion-row class="ion-justify-content-center ion-align-items-center">
+            <p>Quantity: {{item.quantity}}</p>
+            <div class="ion-margin">
+              <ion-button size="large" (click)="increment(item)">+</ion-button>
+              <ion-button size="large" (click)="decrement(item)" >-</ion-button>
+            </div>
+          </ion-row>
+          <ion-row>
+          </ion-row>
+        </ion-grid>
+    </ion-item>
+  </ion-list>
+  <p>Subtotal: ${{cart.total.toLocaleString()}}</p>
+  <p>Total: ${{(cart.total * 1.08875).toLocaleString()}}</p>
+  <a routerLink="/">Go Home</a>
 </ion-content>

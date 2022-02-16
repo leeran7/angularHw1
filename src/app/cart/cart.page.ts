@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Cart } from '../interfaces';
+import { Cart, CartItem, Product } from '../interfaces';
 import { CartService } from './cart.service';
 
 @Component({
@@ -14,5 +14,11 @@ export class CartPage implements OnInit {
 
   ngOnInit() {
     this.cart = this.service.getCart();
+  }
+  increment(item: CartItem) {
+    this.service.incrementQty(item);
+  }
+  decrement(item: CartItem) {
+    this.service.decrementQty(item);
   }
 }
