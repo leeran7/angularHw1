@@ -42,8 +42,9 @@ export class CartService {
       this.deleteItem(itemToDec);
     } else {
       itemToDec.quantity--;
+      this.cart.quantity--;
     }
-    this.cart.quantity--;
+
     this.calculateTotal();
   }
   incrementQty(item: CartItem) {
@@ -53,9 +54,8 @@ export class CartService {
     this.calculateTotal();
   }
   private calculateTotal() {
-    const { items } = this.cart;
     this.cart.total = 0;
-    items.forEach(
+    this.cart.items.forEach(
       (item) => (this.cart.total += item.item.price * item.quantity)
     );
   }

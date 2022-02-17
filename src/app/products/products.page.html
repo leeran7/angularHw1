@@ -3,19 +3,13 @@
     <ion-title>Products</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-searchbar showCancelButton="focus"></ion-searchbar>
+<ion-searchbar 
+  (ionInput)="filterProducts($event.target.value)"
+  showCancelButton="focus"
+  placeholder="Search Products"
+  ></ion-searchbar>
 <ion-content class="ion-text-center">
-  <ion-button class="ion-margin" routerLink="/cart">Checkout ({{cart.quantity}}) items</ion-button>
-  <!-- <ion-list>
-    <ion-item 
-      *ngFor="let product of products" 
-      [routerLink]="['/products', product.id]" 
-      class="item"
-      (click)="log(product)" >
-          <p>{{product.name}} ${{product.price}}</p>
-        <img [src]="product.img" />
-    </ion-item>
-  </ion-list> -->
+  <ion-button class="ion-margin" color="success" routerLink="/cart">Checkout ({{cart.quantity}}) items</ion-button>
   <ion-grid>
     <ion-row>
       <ion-col >

@@ -8,12 +8,12 @@ import { ProductsService } from './products.service';
   styleUrls: ['./products.page.scss'],
 })
 export class ProductsPage implements OnInit {
+  private products: Product[] = [];
+  private cart: Cart;
   constructor(
     private pService: ProductsService,
     private cService: CartService
   ) {}
-  private products: Product[] = [];
-  private cart: Cart;
   ngOnInit() {
     this.products = this.pService.getAllProducts();
     this.cart = this.cService.getCart();
@@ -21,5 +21,8 @@ export class ProductsPage implements OnInit {
   }
   log(product: Product) {
     console.log(product);
+  }
+  filterProducts(value: string) {
+    this.products = this.pService.filterProducts(value);
   }
 }

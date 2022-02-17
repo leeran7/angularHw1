@@ -64,4 +64,9 @@ export class ProductsService {
   getProduct(productId: number) {
     return this.products.find((product) => product.id === productId);
   }
+  filterProducts(value: string) {
+    return this.products.filter((item) =>
+      item.name.toLowerCase().includes(value.toLowerCase())
+    );
+  }
 }
