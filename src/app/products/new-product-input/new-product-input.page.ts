@@ -17,17 +17,17 @@ export class NewProductInputPage implements OnInit {
   };
   constructor(private pService: ProductsService, private route: Router) {}
   ngOnInit() {}
-  updateDesc(e: string) {
-    this.product.description = e;
+  updateDesc(desc: string) {
+    this.product.description = desc;
   }
-  updateImg(e: string) {
-    this.product.img = e;
+  updateImg(imgUrl: string) {
+    this.product.img = imgUrl;
   }
-  updatePrice(e: string) {
-    this.product.price = Number(e);
+  updatePrice(price: string) {
+    this.product.price = Number(price);
   }
-  updateName(e: string) {
-    this.product.name = e;
+  updateName(name: string) {
+    this.product.name = name;
   }
   saveInfo() {
     this.pService.addProduct(this.product);
