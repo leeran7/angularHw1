@@ -3,18 +3,21 @@
     <ion-title>Products</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-searchbar 
+
+<ion-content class="ion-text-center">
+  <ion-searchbar 
   (ionInput)="filterProducts($event.target.value)"
   showCancelButton="focus"
   placeholder="Search Products"
   ></ion-searchbar>
-<ion-content class="ion-text-center">
-  <ion-button class="ion-margin" color="success" routerLink="/cart">Checkout ({{cart.quantity}}) items</ion-button>
+ 
   <ion-grid>
     <ion-row>
       <ion-col>
+        <ion-button class="ion-margin" color="success" routerLink="/cart">Checkout ({{cart.quantity}}) items</ion-button>
         <ion-button routerLink="/products/new">Add New Product</ion-button>
       </ion-col>
+      
     </ion-row>
     <ion-row>
       <ion-col >

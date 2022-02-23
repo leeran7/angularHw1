@@ -2,7 +2,10 @@
   <ion-toolbar>
     <ion-title>{{product.name}}</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button
+          [text]="buttonText"
+          [icon]="buttonIcon">
+      </ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -21,7 +24,6 @@
           <h5>{{product.description}}</h5>
         </ion-text>
         <ion-row class="ion-justify-content-around">
-          <ion-button expand="block" shape="round" color="danger" routerLink="/">Go Home</ion-button>
           <ion-button expand="block" shape="round" color="success" (click)="addToCart()">Add to Cart</ion-button>
         </ion-row>
       </div>

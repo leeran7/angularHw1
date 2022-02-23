@@ -1,5 +1,11 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+          [text]="buttonText"
+          [icon]="buttonIcon">
+      </ion-back-button>
+    </ion-buttons>
     <ion-title>Cart</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,15 +23,15 @@
           <ion-row class="ion-justify-content-center ion-align-items-center">
             <p>Quantity: {{item.quantity}}</p>
             <div class="ion-margin">
-              <ion-button size="large" (click)="increment(item)">+</ion-button>
-              <ion-button size="large" (click)="decrement(item)">-</ion-button>
-              <ion-button size="large" (click)="deleteItem(item)" color="danger">Delete</ion-button>
+              <ion-button size="medium" (click)="increment(item)">+</ion-button>
+              <ion-button size="medium" (click)="decrement(item)">-</ion-button>
+              <ion-button size="medium" (click)="deleteItem(item)" color="danger">Delete</ion-button>
             </div>
           </ion-row>
         </ion-grid>
     </ion-item>
   </ion-list>
   <p>Subtotal: ${{cart.total.toLocaleString()}}</p>
-  <p>Total: ${{(cart.total * 1.08875).toLocaleString()}}</p>
-  <a routerLink="/">Go Home</a>
+  <p>Total: ${{(cart.total * 1.08875).toFixed(2).toLocaleString()}}</p>
+  <ion-button routerLink="/">Go Home</ion-button>
 </ion-content>
