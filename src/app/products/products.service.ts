@@ -27,6 +27,8 @@ export class ProductsService {
       name: 'iPhone 13 Pro',
       price: 1099,
       img: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6443/6443338cv14d.jpg;maxHeight=640;maxWidth=550',
+      description:
+        'iPhone 13 Pro. The biggest Pro camera system upgrade ever. Super Retina XDR display with ProMotion for a faster, more responsive feel. Lightning-fast A15 Bionic chip. Superfast 5G.¹ Durable design and a huge leap in battery life.',
     },
     {
       id: 3,

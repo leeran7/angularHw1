@@ -12,6 +12,11 @@
   <ion-button class="ion-margin" color="success" routerLink="/cart">Checkout ({{cart.quantity}}) items</ion-button>
   <ion-grid>
     <ion-row>
+      <ion-col>
+        <ion-button routerLink="/products/new">Add New Product</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col >
         <ion-row>
           <ion-col size="6" *ngFor="let product of products" 

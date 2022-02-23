@@ -22,6 +22,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'new',
+        loadChildren: () =>
+          import('./products/new-product-input/new-product-input.module').then(
+            (m) => m.NewProductInputPageModule
+          ),
+      },
+      {
         path: ':id',
         loadChildren: () =>
           import('./products/products-detail/products-detail.module').then(
@@ -32,7 +39,15 @@ const routes: Routes = [
   },
   {
     path: 'cart',
-    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+    loadChildren: () =>
+      import('./cart/cart.module').then((m) => m.CartPageModule),
+  },
+  {
+    path: 'new-product-input',
+    loadChildren: () =>
+      import('./products/new-product-input/new-product-input.module').then(
+        (m) => m.NewProductInputPageModule
+      ),
   },
 ];
 

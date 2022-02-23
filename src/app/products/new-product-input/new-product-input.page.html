@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>new-product-input</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  
+      <ion-row>
+        <ion-col>
+          <ion-label>Product Name</ion-label>
+          <ion-input placeholder="Enter Product Name" (ionInput)="updateName($event.target.value)"></ion-input>
+      
+          <ion-label>Price</ion-label>
+          <ion-input placeholder="Enter Price" (ionInput)="updatePrice($event.target.value)"></ion-input>
+        
+          <ion-label>Description</ion-label>
+          <ion-input placeholder="Enter Description" (ionInput)="updateDesc($event.target.value)"></ion-input>
+      
+          <ion-label>Image Url</ion-label>
+          <ion-input placeholder="Enter Image Url" (ionInput)="updateImg($event.target.value)"></ion-input>
+          <ion-button (click)="saveInfo()">Add Product</ion-button>
+        </ion-col>
+        
+      </ion-row>
+   
+</ion-content>
