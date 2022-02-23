@@ -1,25 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>new-product-input</ion-title>
+    <ion-title>Add New Product</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content >
-  
       <ion-row>
         <ion-col>
-          <ion-label>Product Name</ion-label>
-          <ion-input placeholder="Enter Product Name" (ionInput)="updateName($event.target.value)"></ion-input>
-      
-          <ion-label>Price</ion-label>
-          <ion-input placeholder="Enter Price" (ionInput)="updatePrice($event.target.value)"></ion-input>
-        
-          <ion-label>Description</ion-label>
-          <ion-input placeholder="Enter Description" (ionInput)="updateDesc($event.target.value)"></ion-input>
-      
-          <ion-label>Image Url</ion-label>
-          <ion-input placeholder="Enter Image Url" (ionInput)="updateImg($event.target.value)"></ion-input>
-          <ion-button (click)="saveInfo()">Add Product</ion-button>
+          <ion-row>
+            <ion-col class="ion-text-center">
+              <ion-row class="ion-align-items-baseline ion-margin">
+                <ion-label name="productName" >Product Name</ion-label>
+                <ion-input id="productName" name="productName" placeholder="Enter Product Name" (ionInput)="updateName($event.target.value)"></ion-input>
+              </ion-row>
+          
+              <ion-row class="ion-align-items-baseline ion-margin">
+                <ion-label name="price">Price</ion-label>
+                <ion-input id="price" name="price" placeholder="Enter Price" (ionInput)="updatePrice($event.target.value)"></ion-input>
+              </ion-row>
+            
+              <ion-row class="ion-align-items-baseline ion-margin">
+                <ion-label name="description">Description</ion-label>
+                <ion-input id="description" name="description" placeholder="Enter Description" (ionInput)="updateDesc($event.target.value)"></ion-input>
+              </ion-row>
+          
+             <ion-row class="ion-align-items-baseline ion-margin">
+                <ion-label name="imgUrl">Image Url</ion-label>
+                <ion-input id="imgUrl" name="imgUrl" placeholder="Enter Image Url" (ionInput)="updateImg($event.target.value)"></ion-input>
+             </ion-row>
+              <ion-button (click)="saveInfo()">Add Product</ion-button>
+            </ion-col>
+          </ion-row>
         </ion-col>
         
       </ion-row>
